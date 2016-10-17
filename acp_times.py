@@ -49,8 +49,8 @@ def open_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     openingTime_Minutes = round((openingTime - openingTime_Hours) * 60) 
     print(openingTime)
     print(openingTime_Hours, "H | ", openingTime_Minutes , "M")
-    print(arrow.get(brevet_start_time).replace(hour=+openingTime_Hours, minute=+openingTime_Minutes).isoformat())
-    return arrow.get(brevet_start_time).replace(hour=+openingTime_Hours, minute=+openingTime_Minutes).isoformat()
+    print(arrow.get(brevet_start_time).replace(hours=+openingTime_Hours, minutes=+openingTime_Minutes).isoformat())
+    return arrow.get(brevet_start_time).replace(hours=+openingTime_Hours, minutes=+openingTime_Minutes).isoformat()
 
 def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     """
