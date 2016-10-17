@@ -39,15 +39,13 @@ def open_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     
     openingTime = 0
     for distance in timeGrid:
-        print('Subtracted [' + str(distance[0]) + '] from [' + str(control_dist_km) + ']')
         if control_dist_km > distance[0]:
             control_dist_km -= distance[0]
             openingTime += distance[0] / distance[2]
         else:
             openingTime += control_dist_km / distance[2]
             break
-    print(openingTime)
-    return arrow.now().isoformat()
+    return arrow.get(brevet_start_time).replace(hour += openingTime).isoformat()
 
 def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     """
