@@ -87,7 +87,7 @@
 	<th>Close</th>
 	<th>Notes</th>
       </tr>
-   {% for row in range(20) %}
+
     <tr class="control">
       <!-- Dist (mi) -->
       <td><input name="miles" type="number" 
@@ -106,7 +106,7 @@
       <!-- Notes (error messages for this row) -->
       <td class="notes"> &nbsp; </td>
     </tr>
-    {% endfor %}
+
   </table>
   </div> <!-- col -->
   </div> <!-- row -->
@@ -142,6 +142,23 @@
   $(document).ready(function(){
    // Do the following when the page is finished loading
 
+   
+	$('.control_time_table').on('change', 'tr.control:last-child input', function() {
+        var isEmptyRow = 1;
+        $('.control_time_table tr.control:last-child :input').each(function() {
+          if($(this).val()) {
+            isEmptyRow = 0;
+            return false;
+          }
+          
+        });
+        if(isEmptyRow == 0) {
+          var newRow = '<tr class="control"><td><input name="miles" type="number" min="0" max="900" size="5" /></td><td><input name="km" type="text" min="0" max="1100" size="5" /> </td><td><input name="location" type="text" placeholder="Optional location name" size="20" /> </td><td><input name="open" type="datetime" value="" readonly /></td><td><input name="close" type="datetime" value="" readonly /></td><td class="notes"> &nbsp; </td></tr>';
+          $('#control_time_table').append(newRow);
+        }
+        
+      });
+	  
       $('input[name="miles"]').change(
          function() {
              var miles = parseFloat($(this).val());
