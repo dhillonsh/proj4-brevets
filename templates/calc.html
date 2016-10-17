@@ -87,7 +87,7 @@
 	<th>Close</th>
 	<th>Notes</th>
       </tr>
-
+	
     <tr class="control">
       <!-- Dist (mi) -->
       <td><input name="miles" type="number" 
@@ -106,7 +106,6 @@
       <!-- Notes (error messages for this row) -->
       <td class="notes"> &nbsp; </td>
     </tr>
-
   </table>
   </div> <!-- col -->
   </div> <!-- row -->
@@ -145,8 +144,10 @@
    
 	$('.control_time_table').on('change', 'tr.control:last-child input', function() {
         var isEmptyRow = 1;
+		console.log("Here now");
         $('.control_time_table tr.control:last-child :input').each(function() {
           if($(this).val()) {
+		  console.log("Not empty");
             isEmptyRow = 0;
             return false;
           }
