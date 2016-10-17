@@ -137,11 +137,7 @@
        } // end of handler function
      );// End of getJSON
     }
-
-  $(document).ready(function(){
-   // Do the following when the page is finished loading
-
-   
+$(function() {
 	$('.control_time_table').on('change', 'tr.control:last-child input', function() {
         var isEmptyRow = 1;
 		console.log("Here now");
@@ -160,7 +156,7 @@
         
       });
 	  
-      $('input[name="miles"]').change(
+      $('input[name="miles"]').on('change',
          function() {
              var miles = parseFloat($(this).val());
              var km = (1.609344 * miles).toFixed(1) ;
@@ -172,7 +168,7 @@
              calc_times(control_entry);
           });
 
-      $('input[name="km"]').change(
+      $('input[name="km"]').on('change',
          function() {
              var km = parseFloat($(this).val());
              var miles = (0.621371 * km).toFixed(1) ;
