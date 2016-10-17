@@ -29,6 +29,24 @@ def open_time( control_dist_km, brevet_dist_km, brevet_start_time ):
        An ISO 8601 format date string indicating the control open time.
        This will be in the same time zone as the brevet start time.
     """
+    
+    timeGrid = [
+        {200: [15, 34]},
+        {200: [15, 32]},
+        {200: [15, 30]},
+        {400: [11.428, 28]}
+    ]
+    
+    maxSpeed = 0
+    for distance, speeds in timeGrid.items():
+        print('Subtracted [' + str(distance) + '] from [' + control_dist_km + ']')
+        if control_dist_km > distance:
+            control_dist_km -= distance
+            maxSpeed += distance / speeds[1]
+        else:
+            maxSpeed += control_dist_km / speeds[1]
+            break
+    
     return arrow.now().isoformat()
 
 def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
