@@ -31,20 +31,20 @@ def open_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     """
     
     timeGrid = [
-        {200: [15, 34]},
-        {200: [15, 32]},
-        {200: [15, 30]},
-        {400: [11.428, 28]}
+        (200, 15, 34),
+        (200, 15, 32),
+        (200, 15, 30),
+        (400, 11.428, 28)
     ]
     
     maxSpeed = 0
-    for distance, speeds in timeGrid.items():
-        print('Subtracted [' + str(distance) + '] from [' + control_dist_km + ']')
-        if control_dist_km > distance:
-            control_dist_km -= distance
-            maxSpeed += distance / speeds[1]
+    for distance in timeGrid:
+        print('Subtracted [' + str(distance[0]) + '] from [' + control_dist_km + ']')
+        if control_dist_km > distance[0]:
+            control_dist_km -= distance[0]
+            maxSpeed += distance[0] / distance[2]
         else:
-            maxSpeed += control_dist_km / speeds[1]
+            maxSpeed += control_dist_km / distance[2]
             break
     
     return arrow.now().isoformat()
