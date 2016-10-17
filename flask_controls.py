@@ -65,6 +65,7 @@ def _calc_times():
   app.logger.debug("Got a JSON request");
   km = request.args.get('km', 0, type=int)
   brevet_distance = request.args.get('brevet_distance', 0, type=int)
+  print(request.args.get('begin_date'))
   open_time = acp_times.open_time(km, brevet_distance, arrow.now().isoformat)
   close_time = acp_times.close_time(km, brevet_distance, arrow.now().isoformat)
   result={ "open": open_time, "close": close_time }
