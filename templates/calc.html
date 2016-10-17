@@ -132,6 +132,9 @@
          var times = data.result;
          console.log("Got a response: " +  times);
          console.log("Response.open = " + times.open);
+	    console.log("Open Moment: " +  moment(times.open).format("ddd M/D H:mm"));
+	    d = new Date(times.open)
+	    console.log("Open Date: " + d.format("ddd M/D H:mm"));
          open_time_field.val( moment(times.open).format("ddd M/D H:mm"));
          close_time_field.val( moment(times.close).format("ddd M/D H:mm"));
        } // end of handler function
