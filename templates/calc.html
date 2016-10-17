@@ -156,7 +156,7 @@ $(function() {
         
       });
 	  
-      $('input[name="miles"]').on('change',
+      $('.control_time_table').on('change', 'input[name="miles"]',
          function() {
              var miles = parseFloat($(this).val());
              var km = (1.609344 * miles).toFixed(1) ;
@@ -168,7 +168,7 @@ $(function() {
              calc_times(control_entry);
           });
 
-      $('input[name="km"]').on('change',
+      $('.control_time_table').on('change', 'input[name="km"]',
          function() {
              var km = parseFloat($(this).val());
              var miles = (0.621371 * km).toFixed(1) ;
