@@ -29,7 +29,7 @@ def open_time( control_dist_km, brevet_dist_km, brevet_start_time ):
        An ISO 8601 format date string indicating the control open time.
        This will be in the same time zone as the brevet start time.
     """
-    
+    print(arrow.get(brevet_start_time).isoformat())
     timeGrid = [
         (200, 15, 34),
         (200, 15, 32),
