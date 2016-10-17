@@ -45,7 +45,9 @@ def open_time( control_dist_km, brevet_dist_km, brevet_start_time ):
         else:
             openingTime += control_dist_km / distance[2]
             break
-    return arrow.get(brevet_start_time).replace(hour=+openingTime).isoformat()
+    openingTime_Hours = int(openingTime)
+    openingTime_Minutes = round((openingTime - openingTime_Hours) * 60) 
+    return arrow.get(brevet_start_time).replace(hour=+openingTime_Hours, minute=+openingTime_Minutes).isoformat()
 
 def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     """
