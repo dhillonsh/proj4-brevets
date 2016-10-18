@@ -156,9 +156,8 @@
     }
 $(function() {
 	$('form').on('change', 'input[id^="begin"]', function() {
-		alert('HERE');
 		$('.control_time_table tr.control').each(function() {
-		  calc_times(this);
+		  alert($(this).attr('class'));
 		});	
 	});
 	$('.control_time_table').on('change', 'tr.control:last-child input', function() {
