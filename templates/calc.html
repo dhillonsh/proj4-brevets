@@ -155,7 +155,7 @@
      );// End of getJSON
     }
 $(function() {
-	$().on('change', 'input[name^="begin_"]', function() {
+	$('form').on('change', 'input[id="begin_time"]', function() {
 		alert('HERE');
 		$('.control_time_table tr.control').each(function() {
 		  calc_times(this);
