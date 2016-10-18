@@ -88,6 +88,7 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
             break
     closingTime_Hours = int(closingTime)
     closingTime_Minutes = round((closingTime - closingTime_Hours) * 60)
+    print("Close B4: ", closingTime_Hours, "H | ", closingTime_Minutes , "M")
     if lastCheckpoint:
         if closingTime_Minutes <= 30:
             closingTime_Minutes = 30
@@ -95,7 +96,7 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
             closingTime_Hours += 1
             closingTime_Minutes = 0
     print(closingTime)
-    print(closingTime_Hours, "H | ", closingTime_Minutes , "M")
+    print("Close After: ", closingTime_Hours, "H | ", closingTime_Minutes , "M")
     print(arrow.get(brevet_start_time).replace(hours=+closingTime_Hours, minutes=+closingTime_Minutes).isoformat())
     return arrow.get(brevet_start_time).replace(hours=+closingTime_Hours, minutes=+closingTime_Minutes).isoformat()
 
