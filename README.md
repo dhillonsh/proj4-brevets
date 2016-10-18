@@ -3,7 +3,7 @@
 Reimplement the RUSA ACP controle time calculator with flask and ajax
 
 ## ACP controle times
-
+t
 That's "controle" with an 'e', because it's French, although "control"
 is also accepted.  Controls are points where   
 a rider must obtain proof of passage, and control[e] times are the
