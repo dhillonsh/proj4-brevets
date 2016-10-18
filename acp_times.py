@@ -85,7 +85,7 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
             closingTime += distance[0] / distance[1]
             #lastCheckpointTime = closingTime
         else:
-            #closingTime += control_dist_km / distance[1]
+            closingTime += control_dist_km / distance[1]
             break
     closingTime_Hours = int(closingTime)
     closingTime_Minutes = round((closingTime - closingTime_Hours) * 60)
