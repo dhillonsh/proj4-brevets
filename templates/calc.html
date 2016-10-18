@@ -157,7 +157,7 @@
 $(function() {
 	$('form').on('change', 'input[id^="begin"]', function() {
 		$('.control_time_table tr.control').each(function() {
-		  alert($(this).attr('class'));
+		  alert($(this).find("input[name='km']").val(););
 		});	
 	});
 	$('.control_time_table').on('change', 'tr.control:last-child input', function() {
