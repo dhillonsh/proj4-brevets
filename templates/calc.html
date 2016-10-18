@@ -155,7 +155,7 @@
      );// End of getJSON
     }
 $(function() {
-	$().on('change', 'change', 'input[name^="begin_"]', function() {
+	$().on('change', 'input[name^="begin_"]', function() {
 		$('.control_time_table tr.control').each(function() {
 		  calc_times(this);
 		});	
