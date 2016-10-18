@@ -148,8 +148,8 @@
   ("0" + m.getUTCHours()).slice(-2) + ":" +
   ("0" + m.getUTCMinutes()).slice(-2);
 	    
-	    console.log("Open Date: " + dateString);
-         open_time_field.val(dateString); //moment(times.open).format("ddd M/D H:mm"));
+	    console.log("Open Date: " + dateStringOpen);
+         open_time_field.val(dateStringOpen); //moment(times.open).format("ddd M/D H:mm"));
          close_time_field.val(dateStringClose);
        } // end of handler function
      );// End of getJSON
