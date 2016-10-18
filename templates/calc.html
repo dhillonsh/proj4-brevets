@@ -134,16 +134,15 @@
          console.log("Response.open = " + times.open);
 	    console.log("Open Moment: " +  moment(times.open).format("ddd M/D H:mm"));
 	    m = new Date(times.open)
-	    var dateString =
-  m.getUTCFullYear() +"/"+
+	    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+	    var dateString = days[m.getDay()] + " " +
   ("0" + (m.getUTCMonth()+1)).slice(-2) +"/"+
   ("0" + m.getUTCDate()).slice(-2) + " " +
   ("0" + m.getUTCHours()).slice(-2) + ":" +
-  ("0" + m.getUTCMinutes()).slice(-2) + ":" +
-  ("0" + m.getUTCSeconds()).slice(-2);
+  ("0" + m.getUTCMinutes()).slice(-2);
 	    
 	    console.log("Open Date: " + dateString);
-         open_time_field.val( moment(times.open).format("ddd M/D H:mm"));
+         open_time_field.val(dateString); //moment(times.open).format("ddd M/D H:mm"));
          close_time_field.val( moment(times.close).format("ddd M/D H:mm"));
        } // end of handler function
      );// End of getJSON
