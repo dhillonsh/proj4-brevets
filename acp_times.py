@@ -90,7 +90,10 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
             if not lastCheckpoint:
                 closingTime += control_dist_km / distance[1]
             break
-    if lastCheckpoint and brevet_dist_km == 200:
+    if control_dist_km == 0:
+        closingTime_Hours = 1
+        closingTime_Minutes = 0
+    elif lastCheckpoint and brevet_dist_km == 200:
         closingTime_Hours = 13
         closingTime_Minutes = 30
     else:
