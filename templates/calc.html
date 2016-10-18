@@ -81,12 +81,12 @@
   <table class="control_time_table">
       <tr>
 	 <th>Checkpoint</th>
-	<th> Miles </th>
-	<th> Km </th>
-	<th>Location</th>
-	<th>Open</th>
-	<th>Close</th>
-	<th>Notes</th>
+	<th align="center"> Miles </th>
+	<th align="center"> Km </th>
+	<th align="center">Location</th>
+	<th align="center">Open</th>
+	<th align="center">Close</th>
+	<th align="center">Notes</th>
       </tr>
 
 <tr class="control">
@@ -185,6 +185,7 @@ $(function() {
 	$('.control_time_table').on('change', 'tr.control:last-child input', function() {
         var isEmptyRow = 1;
 	var index = $(this).parents('.control').find('td:first').val();
+		alert(index);
         $('.control_time_table tr.control:last-child :input').each(function() {
 	
           if($(this).val()) {
