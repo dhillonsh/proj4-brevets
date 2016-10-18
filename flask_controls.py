@@ -66,7 +66,7 @@ def _calc_times():
   km = request.args.get('km', 0, type=int)
   brevet_distance = request.args.get('brevet_distance', 0, type=int)
   brevet_start_time = request.args.get('begin_date') + ' ' + request.args.get('begin_time')
-  print('Args:   KM:', km, ' | Distance: ',brevet_distance,' | start time: ',brevet_start_time)
+  print('Args:   KM TEST: ', request.args.get('km'),' | KM:', km, ' | Distance: ',brevet_distance,' | start time: ',brevet_start_time)
   open_time = acp_times.open_time(km, brevet_distance, brevet_start_time)
   close_time = acp_times.close_time(km, brevet_distance, brevet_start_time)
   result={ "open": open_time, "close": close_time }
