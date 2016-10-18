@@ -65,6 +65,27 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
        An ISO 8601 format date string indicating the control close time.
        This will be in the same time zone as the brevet start time.
     """
-    return arrow.now().isoformat()
+    print(arrow.get(brevet_start_time).isoformat())
+    timeGrid = [
+        (200, 15, 34),
+        (200, 15, 32),
+        (200, 15, 30),
+        (400, 11.428, 28)
+    ]
+    
+    closingTime = 0
+    for distance in timeGrid:
+        if control_dist_km > distance[0]:
+            control_dist_km -= distance[0]
+            closingTime += distance[0] / distance[1]
+        else:
+            closingTime += control_dist_km / distance[1]
+            break
+    closingTime_Hours = int(closingTime)
+    closingTime_Minutes = round((closingTime - closingTime_Hours) * 60) 
+    print(closingTime)
+    print(closingTime_Hours, "H | ", closingTime_Minutes , "M")
+    print(arrow.get(brevet_start_time).replace(hours=+closingTime_Hours, minutes=+closingTime_Minutes).isoformat())
+    return arrow.get(brevet_start_time).replace(hours=+closingTime_Hours, minutes=+closingTime_Minutes).isoformat()
 
 
