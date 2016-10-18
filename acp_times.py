@@ -80,6 +80,7 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     
     closingTime = 0
     for distance in timeGrid:
+        print('Distance:',distance,' | Control Distance:', control_dist_km,' | Closing Time:',closingTime)
         if control_dist_km > distance[0]:
             control_dist_km -= distance[0]
             closingTime += distance[0] / distance[1]
