@@ -155,6 +155,11 @@
      );// End of getJSON
     }
 $(function() {
+	$.on('change', 'change', 'input[name^="begin_"]', function() {
+		$('.control_time_table tr.control').each(function() {
+		  calc_times(this);
+		});	
+	});
 	$('.control_time_table').on('change', 'tr.control:last-child input', function() {
         var isEmptyRow = 1;
         $('.control_time_table tr.control:last-child :input').each(function() {
