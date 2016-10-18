@@ -80,6 +80,7 @@
   <div class="col-md-12"> 
   <table class="control_time_table">
       <tr>
+	 <th>Checkpoint</th>
 	<th> Miles </th>
 	<th> Km </th>
 	<th>Location</th>
@@ -89,6 +90,7 @@
       </tr>
 
 <tr class="control">
+	<td>1</td>
       <!-- Dist (mi) -->
       <td><input name="miles" type="number" 
            min="0" max="900" size="5" disabled value="0"/></td>
@@ -108,6 +110,7 @@
     </tr>
 	  
     <tr class="control">
+	    <td>2</td>
       <!-- Dist (mi) -->
       <td><input name="miles" type="number" 
            min="0" max="900" size="5" /></td>
@@ -181,14 +184,16 @@ $(function() {
 	});
 	$('.control_time_table').on('change', 'tr.control:last-child input', function() {
         var isEmptyRow = 1;
+	var index = $(this).parents('.control').find('td:first').val();
         $('.control_time_table tr.control:last-child :input').each(function() {
+	
           if($(this).val()) {
             isEmptyRow = 0;
             return false;
           }
         });
         if(isEmptyRow == 0) {
-          var newRow = '<tr class="control"><td><input name="miles" type="number" min="0" max="900" size="5" /></td><td><input name="km" type="text" min="0" max="1100" size="5" /> </td><td><input name="location" type="text" placeholder="Optional location name" size="20" /> </td><td><input name="open" type="datetime" value="" readonly /></td><td><input name="close" type="datetime" value="" readonly /></td><td class="notes"> &nbsp; </td></tr>';
+          var newRow = '<tr class="control"><td>' + index + '</td><td><input name="miles" type="number" min="0" max="900" size="5" /></td><td><input name="km" type="text" min="0" max="1100" size="5" /> </td><td><input name="location" type="text" placeholder="Optional location name" size="20" /> </td><td><input name="open" type="datetime" value="" readonly /></td><td><input name="close" type="datetime" value="" readonly /></td><td class="notes"> &nbsp; </td></tr>';
           $('.control_time_table').append(newRow);
         }
       });
