@@ -196,7 +196,7 @@ $(function() {
       $('.control_time_table').on('change', 'input[name="miles"]',
          function() {
              var miles = parseFloat($(this).val());
-             var km = (1.609344 * miles).toFixed(1) ;
+             var km = (1.609344 * miles).toFixed(0) ;
              console.log("Converted " + miles + " miles to " + km + " kilometers");
              var control_entry = $(this).parents(".control")
              var target = control_entry.find("input[name='km']");
@@ -208,7 +208,7 @@ $(function() {
       $('.control_time_table').on('change', 'input[name="km"]',
          function() {
              var km = parseFloat($(this).val());
-             var miles = (0.621371 * km).toFixed(0) ;
+             var miles = (0.621371 * km).toFixed(1) ;
              console.log("Converted " + km + " km to " + miles + " miles");
              var control_entry = $(this).parents(".control")
              var target = control_entry.find("input[name='miles']");
