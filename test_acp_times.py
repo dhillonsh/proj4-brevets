@@ -38,7 +38,7 @@ def test_individuals():
   assert getCloseTime(550, 600) == '36H40'
   assert getCloseTime(600, 600) == '40H00'
   
-  assert getOpenTime(890, 1000) == '65H23'
-  assert getCloseTime(890, 1000) == '29H09'
+  assert getOpenTime(890, 1000) == '29H09'
+  assert getCloseTime(890, 1000) == '65H23'
   
   assert getOpenTime(0, 200) == '1H00'
