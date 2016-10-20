@@ -176,12 +176,12 @@
   ("0" + m.getUTCHours()).slice(-2) + ":" +
   ("0" + m.getUTCMinutes()).slice(-2);
 	    
-	    m = new Date(times.close)
-	   var dateStringClose = days[m.getDay()] + " " +
-  ("0" + (m.getUTCMonth()+1)).slice(-2) +"/"+
-  ("0" + m.getUTCDate()).slice(-2) + " " +
-  ("0" + m.getUTCHours()).slice(-2) + ":" +
-  ("0" + m.getUTCMinutes()).slice(-2);
+	    s = new Date(times.close)
+	   var dateStringClose = days[s.getDay()] + " " +
+  ("0" + (s.getUTCMonth()+1)).slice(-2) +"/"+
+  ("0" + s.getUTCDate()).slice(-2) + " " +
+  ("0" + s.getUTCHours()).slice(-2) + ":" +
+  ("0" + s.getUTCMinutes()).slice(-2);
 	    
 	    console.log("Open Date: " + dateStringOpen);
          open_time_field.val(dateStringOpen); //moment(times.open).format("ddd M/D H:mm"));
