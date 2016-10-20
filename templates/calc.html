@@ -148,9 +148,12 @@
     var open_time_field = control.find("input[name='open']");
     var close_time_field = control.find("input[name='close']");
    if(control.prev() && parseInt(control.prev().find("input[name='km']").val()) > parseInt(km)) {
-	control.find('.notes').html('testing');
-	   return false;
+	control.find('.notes').html('The control points should be specified in ascending order.');
+	return false;
    }
+	else if(parseInt(km) > parseInt($('#brevet_dist_km').val()) * .2) {
+		control.find('.notes').html('This control point (' + km + ' km) is over 20% longer than the theoretical distance (' + $('#brevet_dist_km').val() +' km).');	
+	}
 	  //brevet_dist_km
 	  
 	  
