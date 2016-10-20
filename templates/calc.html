@@ -147,7 +147,10 @@
     var km = control.find("input[name='km']").val();
     var open_time_field = control.find("input[name='open']");
     var close_time_field = control.find("input[name='close']");
-   console.log('Prev Control: ' + control.prev().find('td:first').html());
+   if(control.prev() && parseInt(control.prev().find("input[name='km']").val()) > parseInt(km)) {
+	control.find('.notes').html('testing');
+	   return false;
+   }
 	  //brevet_dist_km
 	  
 	  
