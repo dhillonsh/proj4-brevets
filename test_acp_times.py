@@ -18,8 +18,6 @@ def getCloseTime(control_dist_km, brevet_dist_km):
   totalSeconds = arrow.get(controlDist).timestamp - nowTime.timestamp
   hours, remainder = divmod(totalSeconds, 3600)
   minutes, seconds = divmod(remainder, 60)
-  print("[",hours,"] | [",minutes,"] | [",seconds,"]")
-  print(str(hours) + 'H' + '{0:02d}'.format(minutes))
   return str(hours) + 'H' + '{0:02d}'.format(minutes)
 
 def test_standard200():
@@ -28,7 +26,7 @@ def test_standard200():
   assert getOpenTime(175, 200) == '5H09'
   assert getOpenTime(200, 200) == '5H53'
 
-  assert getOpenTime(60, 200) == '4H00'
-  assert getOpenTime(120, 200) == '8H00'
-  assert getOpenTime(175, 200) == '11H40'
-  assert getOpenTime(200, 200) == '13H30'
+  assert getCloseTime(60, 200) == '4H00'
+  assert getCloseTime(120, 200) == '8H00'
+  assert getCloseTime(175, 200) == '11H40'
+  assert getCloseTime(200, 200) == '13H30'
