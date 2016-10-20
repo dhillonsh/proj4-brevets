@@ -15,8 +15,15 @@ import arrow
 #  javadoc comments. 
 #
 
-
+timeGrid = [
+    (200, 15, 34),
+    (200, 15, 32),
+    (200, 15, 30),
+    (400, 11.428, 28)
+]
+    
 def open_time( control_dist_km, brevet_dist_km, brevet_start_time ):
+    global timeGrid
     """
     Args:
        control_dist_km:  number, the control distance in kilometers
@@ -31,14 +38,6 @@ def open_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     """
     if control_dist_km > brevet_dist_km:
         control_dist_km = brevet_dist_km
-        
-    print(arrow.get(brevet_start_time).isoformat())
-    timeGrid = [
-        (200, 15, 34),
-        (200, 15, 32),
-        (200, 15, 30),
-        (400, 11.428, 28)
-    ]
     
     openingTime = 0
     for distance in timeGrid:
@@ -50,12 +49,11 @@ def open_time( control_dist_km, brevet_dist_km, brevet_start_time ):
             break
     openingTime_Hours = int(openingTime)
     openingTime_Minutes = round((openingTime - openingTime_Hours) * 60) 
-    print(openingTime)
-    print(openingTime_Hours, "H | ", openingTime_Minutes , "M")
-    print(arrow.get(brevet_start_time).replace(hours=+openingTime_Hours, minutes=+openingTime_Minutes).isoformat())
+
     return arrow.get(brevet_start_time).replace(hours=+openingTime_Hours, minutes=+openingTime_Minutes).isoformat()
 
 def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
+    global timeGrid
     """
     Args:
        control_dist_km:  number, the control distance in kilometers
@@ -77,23 +75,12 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     else:
         checkpointSwitch = 1
 
-    print(arrow.get(brevet_start_time).isoformat())
-    timeGrid = [
-        (200, 15, 34),
-        (200, 15, 32),
-        (200, 15, 30),
-        (400, 11.428, 28)
-    ]
-    
     closingTime = 0
     for distance in timeGrid:
-        print('Distance:',distance,' | Control Distance:', control_dist_km,' | Closing Time:',closingTime)
         if control_dist_km >= distance[0]:
             control_dist_km -= distance[0]
             closingTime += distance[0] / distance[1]
-            #lastCheckpointTime = closingTime
         else:
-            print('In here now')
             if checkpointSwitch != 2:
                 closingTime += control_dist_km / distance[1]
             break
@@ -102,24 +89,11 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
         closingTime_Minutes = 0
     elif checkpointSwitch == 2:
         fixedClosings = {200: (13, 30), 300: (20, 0), 400: (27, 0), 600: (40, 0), 1000: (75, 0) }
-        
         closingTime_Hours, closingTime_Minutes = fixedClosings[brevet_dist_km]
-        print( fixedClosings[brevet_dist_km])
     else:
         closingTime_Hours = int(closingTime)
         closingTime_Minutes = round((closingTime - closingTime_Hours) * 60)
-    print("Close B4: ", closingTime_Hours, "H | ", closingTime_Minutes , "M")
-    '''if lastCheckpoint:
-        print("LastCheckpoint => lastCheckpointTime: ", lastCheckpointTime)
-    if lastCheckpoint:
-        if closingTime_Minutes <= 30:
-            closingTime_Minutes = 30
-        else:
-            closingTime_Hours += 1
-            closingTime_Minutes = 0'''
-    print(closingTime)
-    print("Close After: ", closingTime_Hours, "H | ", closingTime_Minutes , "M")
-    print(arrow.get(brevet_start_time).replace(hours=+closingTime_Hours, minutes=+closingTime_Minutes).isoformat())
+
     return arrow.get(brevet_start_time).replace(hours=+closingTime_Hours, minutes=+closingTime_Minutes).isoformat()
 
 
