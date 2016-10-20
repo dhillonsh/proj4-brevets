@@ -190,7 +190,7 @@
      );// End of getJSON
     }
 $(function() {
-	$('form').on('change', 'input[id^="begin"], input[id="brevet_dist_km"]', function() {
+	$('form').on('change', 'input[id^="begin"], select[id="brevet_dist_km"]', function() {
 		$('.control_time_table tr.control').each(function() {
 			if($(this).find("input[name='km']").val()) calc_times($(this));
 		});	
