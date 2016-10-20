@@ -71,6 +71,7 @@ def _calc_times():
   begin_time_split = begin_time.split(':')
   
   if not begin_time_split[0].isdigit() or not 0 <= int(begin_time_split[0]) <= 24 or not begin_time_split[1].isdigit() or not 0 <= int(begin_time_split[1]) <= 59:
+      app.logger.debug("Improper begin_time: " + begin_time)
       begin_time = "00:00"
   
   brevet_start_time = request.args.get('begin_date') + ' ' + begin_time
