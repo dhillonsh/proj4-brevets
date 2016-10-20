@@ -71,3 +71,20 @@ def test_random300():
   
   assert getOpenTime(310, 300) == '9H00'
   assert getCloseTime(310, 300) == '20H00'
+  
+def test_closeCases():
+  assert getCloseTime(199, 200) == '13H16'
+  assert getCloseTime(200, 200) == '13H30'
+  assert getCloseTime(210, 200) == '13H30'
+  assert getCloseTime(240, 200) == '13H30'
+  
+  assert getCloseTime(299, 300) == '19H56'
+  assert getCloseTime(300, 300) == '20H00'
+  assert getCloseTime(310, 300) == '20H00'
+  assert getCloseTime(360, 300) == '20H00'
+  
+  assert getCloseTime(999, 1000) == '74H55'
+  assert getCloseTime(1000, 1000) == '75H00'
+  assert getCloseTime(1010, 1000) == '75H00'
+  assert getCloseTime(1060, 1000) == '75H00'
+
