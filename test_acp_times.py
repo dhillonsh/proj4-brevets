@@ -41,4 +41,5 @@ def test_individuals():
   assert getOpenTime(890, 1000) == '29H09'
   assert getCloseTime(890, 1000) == '65H23'
   
-  assert getOpenTime(0, 200) == '1H00'
+  assert getOpenTime(0, 200) == '0H00'
+  assert getCloseTime(0, 200) == '1H00'
