@@ -69,9 +69,11 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     #checkpointSwitch: 0 = checkpoint 0, 2 = last checkpoint, 1 = every other checkpoint
     if control_dist_km == 0:
         checkpointSwitch = 0
-    if control_dist_km >= brevet_dist_km:
+    elif control_dist_km >= brevet_dist_km:
         checkpointSwitch = 2
-        
+    else:
+        checkpointSwith = 1
+
     print(arrow.get(brevet_start_time).isoformat())
     timeGrid = [
         (200, 15, 34),
