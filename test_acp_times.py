@@ -1,5 +1,5 @@
 
-import acp_times
+from acp_times import *
 import arrow
 
 def test_standard200():
