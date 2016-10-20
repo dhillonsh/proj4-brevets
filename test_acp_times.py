@@ -9,7 +9,7 @@ def getOpenTime(control_dist_km, brevet_dist_km):
   totalSeconds = arrow.get(controlDist).timestamp - nowTime.timestamp
   hours, remainder = divmod(totalSeconds, 3600)
   minutes, seconds = divmod(remainder, 60)
-  return str(hours) + 'H' + str(minutes)
+  return str(hours) + 'H' + '{0:02d}'.format(minutes)
 
 #Returns seconds from current time to when the checkpoint will close
 def getCloseTime(control_dist_km, brevet_dist_km):
