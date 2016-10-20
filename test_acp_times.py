@@ -21,7 +21,7 @@ def getCloseTime(control_dist_km, brevet_dist_km):
   return str(hours) + 'H' + str(minutes)
 
 def test_standard200():
-  assert getOpenTime('60', 200) == '1H46'
-  assert getOpenTime('120', 200) == '3H32'
-  assert getOpenTime('175', 200) == '5H09'
-  assert getOpenTime('200', 200) == '5H53'
+  assert getOpenTime(60, 200) == '1H46'
+  assert getOpenTime(120, 200) == '3H32'
+  assert getOpenTime(175, 200) == '5H09'
+  assert getOpenTime(200, 200) == '5H53'
