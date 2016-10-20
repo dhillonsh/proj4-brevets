@@ -97,9 +97,10 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     if checkpointSwitch == 0:
         closingTime_Hours = 1
         closingTime_Minutes = 0
-    elif checkpointSwitch == 2 and brevet_dist_km == 200:
-        closingTime_Hours = 13
-        closingTime_Minutes = 30
+    elif checkpointSwitch == 2:
+        fixedClosings = {200: (13, 30), 300: (20, 0), 400: (27, 0), 600: (40, 0), 1000: (75, 0) }
+        
+        closeTime_Hours, closingTime_Minutes = fixedClosings[brevet_dist_km]
     else:
         closingTime_Hours = int(closingTime)
         closingTime_Minutes = round((closingTime - closingTime_Hours) * 60)
