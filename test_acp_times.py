@@ -43,3 +43,31 @@ def test_individuals():
   
   assert getOpenTime(0, 200) == '0H00'
   assert getCloseTime(0, 200) == '1H00'
+  
+def test_random300():
+  assert getOpenTime(5, 300) == '0H09'
+  assert getCloseTime(5, 300) == '0H20'
+  
+  assert getOpenTime(20, 300) == '0H35'
+  assert getCloseTime(20, 300) == '1H20'
+  
+  assert getOpenTime(190, 300) == '5H35'
+  assert getCloseTime(190, 300) == '12H40'
+  
+  assert getOpenTime(200, 300) == '5H53'
+  assert getCloseTime(200, 300) == '13H20'
+  
+  assert getOpenTime(205, 300) == '6H02'
+  assert getCloseTime(205, 300) == '13H40'
+  
+  assert getOpenTime(210, 300) == '6H12'
+  assert getCloseTime(210, 300) == '14H00'
+  
+  assert getOpenTime(215, 300) == '6H21'
+  assert getCloseTime(215, 300) == '14H20'
+  
+  assert getOpenTime(290, 300) == '8H42'
+  assert getCloseTime(290, 300) == '19H20'
+  
+  assert getOpenTime(310, 300) == '9H00'
+  assert getCloseTime(310, 300) == '20H00'
