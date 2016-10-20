@@ -20,4 +20,4 @@ def getCloseTime(control_dist_km, brevet_dist_km):
 
 def test_standard200():
   assert getOpenTime(60, 200) == 6360 #1H46M
-//  assert getOpenTime(120, 200) == 
+#  assert getOpenTime(120, 200) == 
