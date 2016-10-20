@@ -147,7 +147,10 @@
     var km = control.find("input[name='km']").val();
     var open_time_field = control.find("input[name='open']");
     var close_time_field = control.find("input[name='close']");
-    
+   console.log('Prev Control: ' + control.prev().find('td:first').html());
+	  //brevet_dist_km
+	  
+	  
 	$.getJSON(TIME_CALC_URL, { km: km,  brevet_distance: $('#brevet_dist_km').val(), begin_date: $('#begin_date').val(), begin_time: $('#begin_time').val()}, 
       // response handler
       function(data) {
