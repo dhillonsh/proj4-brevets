@@ -65,7 +65,16 @@ def _calc_times():
   app.logger.debug("Got a JSON request");
   km = request.args.get('km', 0, type=int)
   brevet_distance = request.args.get('brevet_distance', 0, type=int)
-  brevet_start_time = request.args.get('begin_date') + ' ' + request.args.get('begin_time')
+  
+  ##Verify begin_time is in format 00:00 to 23:59
+  begin_time = request.args.get('begin_time')
+  begin_time_split = begin_time.split(':')
+  
+  if not begin_time_split[0].isdigit() or not 0 <= int(begin_time_split[0]) <= 24 or not begin_time_split[1].isdigit() or not 0 <= int(begin_time_split[1]) <= 59:
+      begin_time = "00:00"
+  
+  brevet_start_time = request.args.get('begin_date') + ' ' + begin_time
+  
   open_time = acp_times.open_time(km, brevet_distance, brevet_start_time)
   close_time = acp_times.close_time(km, brevet_distance, brevet_start_time)
   result={ "open": open_time, "close": close_time }
