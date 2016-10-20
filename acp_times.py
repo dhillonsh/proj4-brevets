@@ -36,6 +36,8 @@ def open_time( control_dist_km, brevet_dist_km, brevet_start_time ):
        An ISO 8601 format date string indicating the control open time.
        This will be in the same time zone as the brevet start time.
     """
+    
+    #Limit the last checkpoint's opening time to use the brevet distance
     if control_dist_km > brevet_dist_km:
         control_dist_km = brevet_dist_km
     
@@ -84,9 +86,13 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
             if checkpointSwitch != 2:
                 closingTime += control_dist_km / distance[1]
             break
+            
+    #The closing time for checkpoint 1, at 0m., is 1 hour
     if checkpointSwitch == 0:
         closingTime_Hours = 1
         closingTime_Minutes = 0
+        
+    #Fixed closing times if the checkpoint is past the brevet distance
     elif checkpointSwitch == 2:
         fixedClosings = {200: (13, 30), 300: (20, 0), 400: (27, 0), 600: (40, 0), 1000: (75, 0) }
         closingTime_Hours, closingTime_Minutes = fixedClosings[brevet_dist_km]
@@ -95,5 +101,3 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
         closingTime_Minutes = round((closingTime - closingTime_Hours) * 60)
 
     return arrow.get(brevet_start_time).replace(hours=+closingTime_Hours, minutes=+closingTime_Minutes).isoformat()
-
-
