@@ -89,7 +89,7 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
             #lastCheckpointTime = closingTime
         else:
             print('In here now')
-            if not lastCheckpoint:
+            if checkpointSwitch != 2:
                 closingTime += control_dist_km / distance[1]
             break
     if checkpointSwitch == 0:
