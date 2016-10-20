@@ -153,7 +153,11 @@
    }
 	else if(parseInt(km) > parseInt($('#brevet_dist_km').val()) * 1.20) {
 		control.find('.notes').html('This control point (' + km + ' km) is over 20% longer than the theoretical distance (' + $('#brevet_dist_km').val() +' km).');	
+		return false;
 	}
+	  else {
+		  control.find('.notes').html('');
+	  }
 	  //brevet_dist_km
 	  
 	  
