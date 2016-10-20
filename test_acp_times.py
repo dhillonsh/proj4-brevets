@@ -30,3 +30,15 @@ def test_standard200():
   assert getCloseTime(120, 200) == '8H00'
   assert getCloseTime(175, 200) == '11H40'
   assert getCloseTime(200, 200) == '13H30'
+  
+def test_individuals():
+  assert getOpenTime(350, 400) == '10H34'
+  
+  assert getOpenTime(550, 600) == '17H08'
+  assert getCloseTime(550, 600) == '36H40'
+  assert getCloseTime(600, 600) == '40H00'
+  
+  assert getOpenTime(890, 1000) == '65H23'
+  assert getCloseTime(890, 1000) == '29H09'
+  
+  assert getOpenTime(0, 200) == '1H00'
