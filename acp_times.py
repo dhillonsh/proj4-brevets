@@ -5,7 +5,7 @@ following rules described at https://rusa.org/octime_alg.html
 and https://rusa.org/pages/rulesForRiders
 """
 import arrow
-from datetime import tzinfo
+from datetime import datetime
 #  Note for CIS 322 Fall 2016:
 #  You MUST provide the following two functions
 #  with these signatures, so that I can write
