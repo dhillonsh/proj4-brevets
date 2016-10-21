@@ -5,7 +5,7 @@ following rules described at https://rusa.org/octime_alg.html
 and https://rusa.org/pages/rulesForRiders
 """
 import arrow
-from datetime import datetime
+from dateutil.tz import tzlocal
 #  Note for CIS 322 Fall 2016:
 #  You MUST provide the following two functions
 #  with these signatures, so that I can write
@@ -52,7 +52,7 @@ def open_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     openingTime_Hours = int(openingTime)
     openingTime_Minutes = round((openingTime - openingTime_Hours) * 60) 
 
-    return arrow.get(brevet_start_time, "YYYY-M-D HH:mm", tzinfo=tz.tzlocal()).replace(hours=+openingTime_Hours, minutes=+openingTime_Minutes).isoformat()
+    return arrow.get(brevet_start_time, "YYYY-M-D HH:mm", tzinfo=tzlocal()).replace(hours=+openingTime_Hours, minutes=+openingTime_Minutes).isoformat()
 
 def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     global timeGrid
