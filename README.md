@@ -6,7 +6,7 @@
 
 ### Purpose ###
 * This application is for Project 4 of CIS 322 at University of Oregon.
-* The purpose of this project was to clone the calculator at http://www.rusa.org/octime_acp.html and improve the system to use Flask and AJAX for realtime updates.
+* The purpose of this project was to clone [a brevet calculator](http://www.rusa.org/octime_acp.html) and improve the system to use Flask and AJAX for realtime updates.
 * The calculator is used to create schedules for brevet races by specifying:
   * The brevet distance
   * The start date and time of the race
