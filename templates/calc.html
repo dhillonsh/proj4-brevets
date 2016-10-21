@@ -168,7 +168,7 @@
          console.log("Got a response: " +  times);
          console.log("Response.open = " + times.open);
 	    console.log("Open Moment: " +  moment(times.open).format("ddd M/D H:mm"));
-/*	    m = new Date(times.open)
+	    m = new Date(times.open)
 	    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 	    var dateStringOpen = days[m.getDay()] + " " +
   ("0" + (m.getUTCMonth()+1)).slice(-2) +"/"+
@@ -185,9 +185,9 @@
 	    
 	    console.log("Open Date: " + dateStringOpen);
          open_time_field.val(dateStringOpen); //moment(times.open).format("ddd M/D H:mm"));
-         close_time_field.val(dateStringClose);*/
-         open_time_field.val(moment(times.open).format("ddd M/D H:mm")); //moment(times.open).format("ddd M/D H:mm"));
-         close_time_field.val(moment(times.close).format("ddd M/D H:mm"));		
+         close_time_field.val(dateStringClose);
+    //     open_time_field.val(moment(times.open).format("ddd M/D H:mm")); //moment(times.open).format("ddd M/D H:mm"));
+     //    close_time_field.val(moment(times.close).format("ddd M/D H:mm"));		
 		
        } // end of handler function
      );// End of getJSON
