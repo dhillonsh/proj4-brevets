@@ -52,7 +52,7 @@ def open_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     openingTime_Hours = int(openingTime)
     openingTime_Minutes = round((openingTime - openingTime_Hours) * 60) 
 
-    return arrow.get(brevet_start_time, "YYYY-M-D HH:mm", tzinfo=tzlocal()).replace(hours=+openingTime_Hours, minutes=+openingTime_Minutes).isoformat()
+    return arrow.get(brevet_start_time).replace(hours=+openingTime_Hours, minutes=+openingTime_Minutes).isoformat()
 
 def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
     global timeGrid
@@ -100,4 +100,4 @@ def close_time( control_dist_km, brevet_dist_km, brevet_start_time ):
         closingTime_Hours = int(closingTime)
         closingTime_Minutes = round((closingTime - closingTime_Hours) * 60)
 
-    return arrow.get(brevet_start_time, "YYYY-M-D HH:mm", tzinfo=tzlocal()).replace(hours=+closingTime_Hours, minutes=+closingTime_Minutes).isoformat()
+    return arrow.get(brevet_start_time).replace(hours=+closingTime_Hours, minutes=+closingTime_Minutes).isoformat()
