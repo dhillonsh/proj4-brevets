@@ -29,6 +29,6 @@
 * The default port is 5000, so the webserver should be reachable at http://localhost:5000 , and also through its IP address.
  
 ### Testing the Application ###
-* Nose tests for acp_times.py can be run with:
+* Nosetests for acp_times.py can be run with:
   * `nosetests`
-  * The nosetests test for boundary cases as well as random values.
+* The nosetests test for boundary cases as well as random values.
