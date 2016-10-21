@@ -1,42 +1,30 @@
-# Project 4:  Brevet time calculator with Ajax
+# README #
 
-Reimplement the RUSA ACP controle time calculator with flask and ajax
+### Author: Harpreet Dhillon , harpreet@uoregon.edu ###
 
-## ACP controle times
-t
-That's "controle" with an 'e', because it's French, although "control"
-is also accepted.  Controls are points where   
-a rider must obtain proof of passage, and control[e] times are the
-minimum and maximum times by which the rider must  
-arrive at the location.   
+---
 
-The algorithm for calculating controle times is described at
-http://www.rusa.org/octime_alg.html . The description is ambiguous,
-but the examples help.  Part of finishing this project is clarifying
-anything that is not clear about the requirements, and documenting it
-clearly.  
+### Purpose ###
+* This application is for Project 4 of CIS 322 at University of Oregon.
+* The purpose of this project was to clone the calculator at http://www.rusa.org/octime_acp.html and improve the system to use Flask and AJAX for realtime updates.
 
-We are essentially replacing the calculator at
-http://www.rusa.org/octime_acp.html .  We can also use that calculator
-to clarify requirements.   
+### Application Specifics ###
+* The application runs on the flask_vocab.py script and displays either:
+  * The index page template
+  * or the respective error template: 400, 403, 500
+* As keystrokes are read, a JSON object will be sent to the server via a POST request. The returned data will then either be displayed or make some modification to the anagram page.
 
-## AJAX and Flask reimplementation
-
-The current RUSA controle time calculator is a Perl script that takes
-an HTML form and emits a text page. The reimplementation will fill in
-times as the input fields are filled.  Each time a distance is filled
-in, the corresponding open and close times should be filled in.   If
-no begin time has been provided, use 0:00 as the begin time.  
-
-I will leave much of the design to you.   
-
-## Testing
-
-A suite of nose test cases is a requirement of this project.  Design
-the test cases based on an interpretation of rules at
-http://www.rusa.org/octime_alg.html .  Be sure to test your test
-cases:  You can use the current brevet time calculator (
-http://www.rusa.org/octime_acp.html ) to check that your expected test
-outputs are correct. While checking these values once is a manual
-operation, re-running your test cases should be automated in the usual
-manner. 
+### Running the Application ###
+* Test deployment to other environments including Raspberry Pi.  Deployment 
+  should work "out of the box" with this command sequence:
+  * `git clone <yourGitRepository> <targetDirectory>`
+  * `cd <targetDirectory>`
+  * `make configure`
+  * `make run`
+  * (control-C to stop program)
+* The default port is 5000, so the webserver should be reachable at http://localhost:5000 , and also through its IP address.
+ 
+### Testing the Application ###
+* Nose tests for acp_times.py can be run with:
+  * `nosetests`
+  * The nosetests test for boundary cases as well as random values.
